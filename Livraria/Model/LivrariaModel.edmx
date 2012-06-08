@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Alias="Self" Namespace="LivrariaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
+        <EntityContainer Name="LivrariaModelStoreContainer">
+          <EntitySet Name="Endereco" EntityType="LivrariaModel.Store.Endereco" store:Type="Tables" store:Schema="dbo" store:Name="Endereco">
+            <DefiningQuery>SELECT 
+      [Endereco].[Id] AS [Id], 
+      [Endereco].[Logradouro] AS [Logradouro], 
+      [Endereco].[UF] AS [UF], 
+      [Endereco].[Cidade] AS [Cidade], 
+      [Endereco].[Bairro] AS [Bairro], 
+      [Endereco].[Complemento] AS [Complemento], 
+      [Endereco].[Pessoa_Id] AS [Pessoa_Id]
+      FROM [dbo].[Endereco] AS [Endereco]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ItemVenda" EntityType="LivrariaModel.Store.ItemVenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pessoa" EntityType="LivrariaModel.Store.Pessoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pessoa_Fisica" EntityType="LivrariaModel.Store.Pessoa_Fisica" store:Type="Tables" store:Schema="dbo" store:Name="Pessoa_Fisica">
+            <DefiningQuery>SELECT 
+      [Pessoa_Fisica].[Nome] AS [Nome], 
+      [Pessoa_Fisica].[CPF] AS [CPF], 
+      [Pessoa_Fisica].[RG] AS [RG], 
+      [Pessoa_Fisica].[DataNascimento] AS [DataNascimento], 
+      [Pessoa_Fisica].[Id] AS [Id]
+      FROM [dbo].[Pessoa_Fisica] AS [Pessoa_Fisica]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Pessoa_Juridica" EntityType="LivrariaModel.Store.Pessoa_Juridica" store:Type="Tables" store:Schema="dbo" store:Name="Pessoa_Juridica">
+            <DefiningQuery>SELECT 
+      [Pessoa_Juridica].[RazaoSocial] AS [RazaoSocial], 
+      [Pessoa_Juridica].[CNPJ] AS [CNPJ], 
+      [Pessoa_Juridica].[InscricaoEstadual] AS [InscricaoEstadual], 
+      [Pessoa_Juridica].[InscricaoMunicipal] AS [InscricaoMunicipal], 
+      [Pessoa_Juridica].[DataFundacao] AS [DataFundacao], 
+      [Pessoa_Juridica].[Id] AS [Id]
+      FROM [dbo].[Pessoa_Juridica] AS [Pessoa_Juridica]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Produto" EntityType="LivrariaModel.Store.Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefone" EntityType="LivrariaModel.Store.Telefone" store:Type="Tables" store:Schema="dbo" store:Name="Telefone">
+            <DefiningQuery>SELECT 
+      [Telefone].[Id] AS [Id], 
+      [Telefone].[DDD] AS [DDD], 
+      [Telefone].[Numero] AS [Numero], 
+      [Telefone].[Pessoa_Id] AS [Pessoa_Id]
+      FROM [dbo].[Telefone] AS [Telefone]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Venda" EntityType="LivrariaModel.Store.Venda" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Endereco_Pessoa" Association="LivrariaModel.Store.FK_Endereco_Pessoa">
+            <End EntitySet="Pessoa" Role="Pessoa" />
+            <End EntitySet="Endereco" Role="Endereco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fisica_inherits_Pessoa" Association="LivrariaModel.Store.FK_Fisica_inherits_Pessoa">
+            <End EntitySet="Pessoa" Role="Pessoa" />
+            <End EntitySet="Pessoa_Fisica" Role="Pessoa_Fisica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemVenda_Produto" Association="LivrariaModel.Store.FK_ItemVenda_Produto">
+            <End EntitySet="Produto" Role="Produto" />
+            <End EntitySet="ItemVenda" Role="ItemVenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemVendaVenda" Association="LivrariaModel.Store.FK_ItemVendaVenda">
+            <End EntitySet="Venda" Role="Venda" />
+            <End EntitySet="ItemVenda" Role="ItemVenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Juridica_inherits_Pessoa" Association="LivrariaModel.Store.FK_Juridica_inherits_Pessoa">
+            <End EntitySet="Pessoa" Role="Pessoa" />
+            <End EntitySet="Pessoa_Juridica" Role="Pessoa_Juridica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefone_Pessoa" Association="LivrariaModel.Store.FK_Telefone_Pessoa">
+            <End EntitySet="Pessoa" Role="Pessoa" />
+            <End EntitySet="Telefone" Role="Telefone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Venda_Pessoa" Association="LivrariaModel.Store.FK_Venda_Pessoa">
+            <End EntitySet="Pessoa" Role="Pessoa" />
+            <End EntitySet="Venda" Role="Venda" />
+          </AssociationSet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\FLAVIO DOCEK\CÓDIGOS\DOTNET\LIVRARIA\APP_DATA\LIVRARIADATABASE.MDF.dbo.Endereco' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Endereco">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            <PropertyRef Name="Pessoa_Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Logradouro" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="UF" Nullable="false" MaxLength="2" Type="nchar" />
+          <Property Name="Cidade" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="Bairro" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="Complemento" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="Pessoa_Id" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="ItemVenda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Quantidade" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="Venda_Id" Nullable="false" Type="int" />
+          <Property Name="Produto_Id" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Observacao" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\FLAVIO DOCEK\CÓDIGOS\DOTNET\LIVRARIA\APP_DATA\LIVRARIADATABASE.MDF.dbo.Pessoa_Fisica' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Pessoa_Fisica">
+          <Key>
+            
+            
+            
+            
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Nome" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="CPF" Nullable="false" MaxLength="14" Type="nvarchar" />
+          <Property Name="RG" Nullable="false" MaxLength="11" Type="nvarchar" />
+          <Property Name="DataNascimento" Nullable="false" Type="datetime" />
+          <Property Name="Id" Nullable="false" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\FLAVIO DOCEK\CÓDIGOS\DOTNET\LIVRARIA\APP_DATA\LIVRARIADATABASE.MDF.dbo.Pessoa_Juridica' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Pessoa_Juridica">
+          <Key>
+            
+            
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="RazaoSocial" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="CNPJ" Nullable="false" MaxLength="18" Type="nvarchar" />
+          <Property Name="InscricaoEstadual" Type="nvarchar(max)" />
+          <Property Name="InscricaoMunicipal" Type="nvarchar(max)" />
+          <Property Name="DataFundacao" Type="datetime" />
+          <Property Name="Id" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Nome" Nullable="false" MaxLength="100" Type="nvarchar" />
+          <Property Name="Descricao" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="Valor" Nullable="false" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\FLAVIO DOCEK\CÓDIGOS\DOTNET\LIVRARIA\APP_DATA\LIVRARIADATABASE.MDF.dbo.Telefone' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="Id" />
+            
+            <PropertyRef Name="Pessoa_Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="DDD" MaxLength="2" Type="nchar" />
+          <Property Name="Numero" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="Pessoa_Id" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Venda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="DataVenda" Nullable="false" Type="datetime" />
+          <Property Name="Pessoa_Id" Nullable="false" Type="int" />
+        </EntityType>
+        <Association Name="FK_Endereco_Pessoa">
+          <End Type="LivrariaModel.Store.Pessoa" Multiplicity="1" Role="Pessoa">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="LivrariaModel.Store.Endereco" Multiplicity="*" Role="Endereco" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Endereco">
+              <PropertyRef Name="Pessoa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fisica_inherits_Pessoa">
+          <End Type="LivrariaModel.Store.Pessoa" Multiplicity="1" Role="Pessoa" />
+          <End Type="LivrariaModel.Store.Pessoa_Fisica" Multiplicity="*" Role="Pessoa_Fisica" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pessoa_Fisica">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemVenda_Produto">
+          <End Type="LivrariaModel.Store.Produto" Multiplicity="1" Role="Produto" />
+          <End Type="LivrariaModel.Store.ItemVenda" Multiplicity="*" Role="ItemVenda" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemVenda">
+              <PropertyRef Name="Produto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemVendaVenda">
+          <End Type="LivrariaModel.Store.Venda" Multiplicity="1" Role="Venda">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="LivrariaModel.Store.ItemVenda" Multiplicity="*" Role="ItemVenda" />
+          <ReferentialConstraint>
+            <Principal Role="Venda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemVenda">
+              <PropertyRef Name="Venda_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Juridica_inherits_Pessoa">
+          <End Type="LivrariaModel.Store.Pessoa" Multiplicity="1" Role="Pessoa" />
+          <End Type="LivrariaModel.Store.Pessoa_Juridica" Multiplicity="*" Role="Pessoa_Juridica" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pessoa_Juridica">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefone_Pessoa">
+          <End Type="LivrariaModel.Store.Pessoa" Multiplicity="1" Role="Pessoa">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="LivrariaModel.Store.Telefone" Multiplicity="*" Role="Telefone" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="Pessoa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Venda_Pessoa">
+          <End Type="LivrariaModel.Store.Pessoa" Multiplicity="1" Role="Pessoa" />
+          <End Type="LivrariaModel.Store.Venda" Multiplicity="*" Role="Venda" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venda">
+              <PropertyRef Name="Pessoa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LivrariaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="LivrariaModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Venda" EntityType="LivrariaModel.Venda" />
+          <EntitySet Name="ItemVenda" EntityType="LivrariaModel.ItemVenda" />
+          <AssociationSet Name="ItemVendaVenda" Association="LivrariaModel.ItemVendaVenda">
+            <End Role="ItemVenda" EntitySet="ItemVenda" />
+            <End Role="Venda" EntitySet="Venda" />
+          </AssociationSet>
+          <EntitySet Name="Produto" EntityType="LivrariaModel.Produto" />
+          <AssociationSet Name="ProdutoItemVenda" Association="LivrariaModel.ProdutoItemVenda">
+            <End EntitySet="Produto" Role="Produto" />
+            <End EntitySet="ItemVenda" Role="ItemVenda" />
+          </AssociationSet>
+          <EntitySet Name="Pessoa" EntityType="LivrariaModel.Pessoa" />
+          <AssociationSet Name="PessoaVenda" Association="LivrariaModel.PessoaVenda">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Venda" EntitySet="Venda" />
+          </AssociationSet>
+          <EntitySet Name="Telefone" EntityType="LivrariaModel.Telefone" />
+          <AssociationSet Name="TelefonePessoa" Association="LivrariaModel.TelefonePessoa">
+            <End Role="Telefone" EntitySet="Telefone" />
+            <End Role="Pessoa" EntitySet="Pessoa" />
+          </AssociationSet>
+          <EntitySet Name="Endereco" EntityType="LivrariaModel.Endereco" />
+          <AssociationSet Name="EnderecoPessoa" Association="LivrariaModel.EnderecoPessoa">
+            <End Role="Endereco" EntitySet="Endereco" />
+            <End Role="Pessoa" EntitySet="Pessoa" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Venda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="DataVenda" Nullable="false" />
+          <NavigationProperty Name="ItemVenda" Relationship="LivrariaModel.ItemVendaVenda" FromRole="Venda" ToRole="ItemVenda" />
+          <NavigationProperty Name="Pessoa" Relationship="LivrariaModel.PessoaVenda" FromRole="Venda" ToRole="Pessoa" />
+        </EntityType>
+        <EntityType Name="ItemVenda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Quantidade" Nullable="false" />
+          <NavigationProperty Name="Venda" Relationship="LivrariaModel.ItemVendaVenda" FromRole="ItemVenda" ToRole="Venda" />
+          <NavigationProperty Name="Produto" Relationship="LivrariaModel.ProdutoItemVenda" FromRole="ItemVenda" ToRole="Produto" />
+        </EntityType>
+        <Association Name="ItemVendaVenda">
+          <End Type="LivrariaModel.ItemVenda" Role="ItemVenda" Multiplicity="*" >
+          </End>
+          <End Type="LivrariaModel.Venda" Role="Venda" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="Descricao" Nullable="false" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+        </EntityType>
+        <Association Name="ProdutoItemVenda">
+          <End Type="LivrariaModel.Produto" Multiplicity="1" Role="Produto" />
+          <End Type="LivrariaModel.ItemVenda" Multiplicity="*" Role="ItemVenda" />
+        </Association>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Observacao" Nullable="true" />
+          <NavigationProperty Name="Venda" Relationship="LivrariaModel.PessoaVenda" FromRole="Pessoa" ToRole="Venda" />
+          <NavigationProperty Name="Telefone" Relationship="LivrariaModel.TelefonePessoa" FromRole="Pessoa" ToRole="Telefone" />
+          <NavigationProperty Name="Endereco" Relationship="LivrariaModel.EnderecoPessoa" FromRole="Pessoa" ToRole="Endereco" />
+        </EntityType>
+        <EntityType Name="Juridica" BaseType="LivrariaModel.Pessoa">
+          <Property Name="RazaoSocial" Nullable="false" Type="String" />
+          <Property Name="CNPJ" Nullable="false" MaxLength="18" Type="String" />
+          <Property Name="InscricaoEstadual" Nullable="true" Type="String" />
+          <Property Name="InscricaoMunicipal" Nullable="true" Type="String" />
+          <Property Name="DataFundacao" Nullable="true" Type="DateTime" />
+        </EntityType>
+        <Association Name="PessoaVenda">
+          <End Type="LivrariaModel.Pessoa" Role="Pessoa" Multiplicity="1" />
+          <End Type="LivrariaModel.Venda" Role="Venda" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Fisica" BaseType="LivrariaModel.Pessoa">
+          <Property Name="Nome" Nullable="false" Type="String" />
+          <Property Name="CPF" Nullable="false" MaxLength="14" Type="String" />
+          <Property Name="RG" Nullable="false" MaxLength="11" Type="String" />
+          <Property Name="DataNascimento" Nullable="false" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DDD" Nullable="true" FixedLength="true" MaxLength="2" />
+          <Property Type="String" Name="Numero" Nullable="false" />
+          <NavigationProperty Name="Pessoa" Relationship="LivrariaModel.TelefonePessoa" FromRole="Telefone" ToRole="Pessoa" />
+        </EntityType>
+        <Association Name="TelefonePessoa">
+          <End Type="LivrariaModel.Telefone" Role="Telefone" Multiplicity="*" />
+          <End Type="LivrariaModel.Pessoa" Role="Pessoa" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Endereco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Logradouro" Nullable="false" />
+          <Property Type="String" Name="UF" Nullable="false" FixedLength="true" MaxLength="2" />
+          <Property Type="String" Name="Cidade" Nullable="false" />
+          <Property Type="String" Name="Bairro" Nullable="false" />
+          <Property Type="String" Name="Complemento" Nullable="false" />
+          <NavigationProperty Name="Pessoa" Relationship="LivrariaModel.EnderecoPessoa" FromRole="Endereco" ToRole="Pessoa" />
+        </EntityType>
+        <Association Name="EnderecoPessoa">
+          <End Type="LivrariaModel.Endereco" Role="Endereco" Multiplicity="*" />
+          <End Type="LivrariaModel.Pessoa" Role="Pessoa" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="LivrariaModelContainer" StorageEntityContainer="LivrariaModelStoreContainer">
+    <EntitySetMapping Name="Venda">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Venda)">
+        <MappingFragment StoreEntitySet="Venda">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataVenda" ColumnName="DataVenda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemVenda">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.ItemVenda)">
+        <MappingFragment StoreEntitySet="ItemVenda">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produto">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Produto)">
+        <MappingFragment StoreEntitySet="Produto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pessoa">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Pessoa)">
+        <MappingFragment StoreEntitySet="Pessoa">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Observacao" ColumnName="Observacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Juridica)">
+        <MappingFragment StoreEntitySet="Pessoa_Juridica">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+          <ScalarProperty Name="InscricaoEstadual" ColumnName="InscricaoEstadual" />
+          <ScalarProperty Name="InscricaoMunicipal" ColumnName="InscricaoMunicipal" />
+          <ScalarProperty Name="DataFundacao" ColumnName="DataFundacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Fisica)">
+        <MappingFragment StoreEntitySet="Pessoa_Fisica">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefone">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Telefone)">
+        <MappingFragment StoreEntitySet="Telefone">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DDD" ColumnName="DDD" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Endereco">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Endereco)">
+        <MappingFragment StoreEntitySet="Endereco">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ItemVendaVenda" TypeName="LivrariaModel.ItemVendaVenda" StoreEntitySet="ItemVenda">
+      <EndProperty Name="Venda">
+        <ScalarProperty Name="Id" ColumnName="Venda_Id" />
+      </EndProperty>
+      <EndProperty Name="ItemVenda">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProdutoItemVenda" TypeName="LivrariaModel.ProdutoItemVenda" StoreEntitySet="ItemVenda">
+      <EndProperty Name="Produto">
+        <ScalarProperty Name="Id" ColumnName="Produto_Id" />
+      </EndProperty>
+      <EndProperty Name="ItemVenda">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PessoaVenda" TypeName="LivrariaModel.PessoaVenda" StoreEntitySet="Venda">
+      <EndProperty Name="Pessoa">
+        <ScalarProperty Name="Id" ColumnName="Pessoa_Id" />
+      </EndProperty>
+      <EndProperty Name="Venda">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TelefonePessoa" TypeName="LivrariaModel.TelefonePessoa" StoreEntitySet="Telefone">
+      <EndProperty Name="Pessoa">
+        <ScalarProperty Name="Id" ColumnName="Pessoa_Id" />
+      </EndProperty>
+      <EndProperty Name="Telefone">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EnderecoPessoa" TypeName="LivrariaModel.EnderecoPessoa" StoreEntitySet="Endereco">
+      <EndProperty Name="Pessoa">
+        <ScalarProperty Name="Id" ColumnName="Pessoa_Id" />
+      </EndProperty>
+      <EndProperty Name="Endereco">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="LivrariaModel" >
+        <EntityTypeShape EntityType="LivrariaModel.Venda" Width="1.5" PointX="0.5" PointY="0.5" Height="1.4033821614583333" />
+        <EntityTypeShape EntityType="LivrariaModel.ItemVenda" Width="1.5" PointX="0.5" PointY="3.25" Height="1.5956835937499996" />
+        <AssociationConnector Association="LivrariaModel.ItemVendaVenda">
+          <ConnectorPoint PointX="1.25" PointY="3.25" />
+          <ConnectorPoint PointX="1.25" PointY="2.09568359375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LivrariaModel.Produto" Width="1.5" PointX="1.75" PointY="5.75" Height="1.7879850260416665" />
+        <AssociationConnector Association="LivrariaModel.ProdutoItemVenda" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.6250005" PointY="5.75" />
+          <ConnectorPoint PointX="2.6250005" PointY="4.1439925130208328" />
+          <ConnectorPoint PointX="2" PointY="4.1439925130208328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LivrariaModel.Pessoa" Width="1.5" PointX="5" PointY="1.375" Height="1.9802864583333331" />
+        <EntityTypeShape EntityType="LivrariaModel.Juridica" PointX="3.75" PointY="4" Width="1.5" Height="1.9802864583333326" />
+        <InheritanceConnector ManuallyRouted="false" EntityType="LivrariaModel.Juridica">
+          <ConnectorPoint PointX="5.6870800815510583" PointY="3.3552864583333331" />
+          <ConnectorPoint PointX="5.6870800815510583" PointY="3.6249999999999996" />
+          <ConnectorPoint PointX="4.5" PointY="3.6249999999999996" />
+          <ConnectorPoint PointX="4.5" PointY="4" />
+        </InheritanceConnector>
+        <AssociationConnector Association="LivrariaModel.PessoaVenda" ManuallyRouted="true">
+          <ConnectorPoint PointX="5" PointY="2.3588207291666667" />
+          <ConnectorPoint PointX="4.625" PointY="2.3588207291666667" />
+          <ConnectorPoint PointX="4.625" PointY="1.0261409505208332" />
+          <ConnectorPoint PointX="2" PointY="1.0261409505208332" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LivrariaModel.Fisica" PointX="6.125" PointY="4" Width="1.5" Height="1.7879850260416665" />
+        <InheritanceConnector EntityType="LivrariaModel.Fisica">
+          <ConnectorPoint PointX="5.8160884876380123" PointY="3.3552864583333331" />
+          <ConnectorPoint PointX="5.8160884876380123" PointY="3.625" />
+          <ConnectorPoint PointX="6.875" PointY="3.625" />
+          <ConnectorPoint PointX="6.875" PointY="4" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="LivrariaModel.Telefone" Width="1.5" PointX="9.375" PointY="1.25" Height="1.787985026041667" />
+        <AssociationConnector Association="LivrariaModel.TelefonePessoa">
+          <ConnectorPoint PointX="9.375" PointY="1.9759561778112866" />
+          <ConnectorPoint PointX="6.5" PointY="1.9759561778112866" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LivrariaModel.Endereco" Width="1.5" PointX="9.125" PointY="3.75" Height="2.3648893229166665" />
+        <AssociationConnector Association="LivrariaModel.EnderecoPessoa" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.125" PointY="4.78483766993291" />
+          <ConnectorPoint PointX="8.75" PointY="4.78483766993291" />
+          <ConnectorPoint PointX="8.75" PointY="2.6394173556225731" />
+          <ConnectorPoint PointX="6.5" PointY="2.6394173556225731" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
