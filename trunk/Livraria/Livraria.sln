@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Livraria", "..\..\..\..\Códigos\dotNet\Livraria\", "{236924D5-2958-4A65-8DBE-C4D628DDB943}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/Livraria"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\Códigos\dotNet\Livraria\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Livraria\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Livraria"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\Códigos\dotNet\Livraria\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Livraria\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2863"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{C5266F0D-E349-4B68-9D37-84A826808E77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{09DD7E89-360E-4FC8-911A-117F427D07CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{32E0C1D8-C99E-4B74-8FA1-B14F694BDD0C}"
+	ProjectSection(SolutionItems) = preProject
+		Livraria.vsmdi = Livraria.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{85DA20E0-CAED-4ED4-9CEB-D6129B128889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{676D4A5A-2188-46FC-868C-AC44D93531F5}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Livraria.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{236924D5-2958-4A65-8DBE-C4D628DDB943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{236924D5-2958-4A65-8DBE-C4D628DDB943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{236924D5-2958-4A65-8DBE-C4D628DDB943}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{236924D5-2958-4A65-8DBE-C4D628DDB943}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C5266F0D-E349-4B68-9D37-84A826808E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5266F0D-E349-4B68-9D37-84A826808E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5266F0D-E349-4B68-9D37-84A826808E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5266F0D-E349-4B68-9D37-84A826808E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09DD7E89-360E-4FC8-911A-117F427D07CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09DD7E89-360E-4FC8-911A-117F427D07CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09DD7E89-360E-4FC8-911A-117F427D07CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09DD7E89-360E-4FC8-911A-117F427D07CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85DA20E0-CAED-4ED4-9CEB-D6129B128889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85DA20E0-CAED-4ED4-9CEB-D6129B128889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85DA20E0-CAED-4ED4-9CEB-D6129B128889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85DA20E0-CAED-4ED4-9CEB-D6129B128889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{676D4A5A-2188-46FC-868C-AC44D93531F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{676D4A5A-2188-46FC-868C-AC44D93531F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{676D4A5A-2188-46FC-868C-AC44D93531F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{676D4A5A-2188-46FC-868C-AC44D93531F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
