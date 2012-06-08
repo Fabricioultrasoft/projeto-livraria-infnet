@@ -473,7 +473,7 @@ namespace Model
         /// <param name="cPF">Initial value of the CPF property.</param>
         /// <param name="rG">Initial value of the RG property.</param>
         /// <param name="dataNascimento">Initial value of the DataNascimento property.</param>
-        public static Fisica CreateFisica(global::System.Int32 id, global::System.String nome, global::System.String cPF, global::System.String rG, global::System.DateTime dataNascimento)
+        public static Fisica CreateFisica(global::System.Int32 id, global::System.String nome, global::System.String cPF, global::System.String rG, global::System.String dataNascimento)
         {
             Fisica fisica = new Fisica();
             fisica.Id = id;
@@ -564,7 +564,7 @@ namespace Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime DataNascimento
+        public global::System.String DataNascimento
         {
             get
             {
@@ -574,13 +574,13 @@ namespace Model
             {
                 OnDataNascimentoChanging(value);
                 ReportPropertyChanging("DataNascimento");
-                _DataNascimento = StructuralObject.SetValidValue(value);
+                _DataNascimento = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("DataNascimento");
                 OnDataNascimentoChanged();
             }
         }
-        private global::System.DateTime _DataNascimento;
-        partial void OnDataNascimentoChanging(global::System.DateTime value);
+        private global::System.String _DataNascimento;
+        partial void OnDataNascimentoChanging(global::System.String value);
         partial void OnDataNascimentoChanged();
 
         #endregion
@@ -763,12 +763,18 @@ namespace Model
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="razaoSocial">Initial value of the RazaoSocial property.</param>
         /// <param name="cNPJ">Initial value of the CNPJ property.</param>
-        public static Juridica CreateJuridica(global::System.Int32 id, global::System.String razaoSocial, global::System.String cNPJ)
+        /// <param name="inscricaoEstadual">Initial value of the InscricaoEstadual property.</param>
+        /// <param name="inscricaoMunicipal">Initial value of the InscricaoMunicipal property.</param>
+        /// <param name="dataFundacao">Initial value of the DataFundacao property.</param>
+        public static Juridica CreateJuridica(global::System.Int32 id, global::System.String razaoSocial, global::System.String cNPJ, global::System.String inscricaoEstadual, global::System.String inscricaoMunicipal, global::System.DateTime dataFundacao)
         {
             Juridica juridica = new Juridica();
             juridica.Id = id;
             juridica.RazaoSocial = razaoSocial;
             juridica.CNPJ = cNPJ;
+            juridica.InscricaoEstadual = inscricaoEstadual;
+            juridica.InscricaoMunicipal = inscricaoMunicipal;
+            juridica.DataFundacao = dataFundacao;
             return juridica;
         }
 
@@ -826,7 +832,7 @@ namespace Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String InscricaoEstadual
         {
@@ -838,7 +844,7 @@ namespace Model
             {
                 OnInscricaoEstadualChanging(value);
                 ReportPropertyChanging("InscricaoEstadual");
-                _InscricaoEstadual = StructuralObject.SetValidValue(value, true);
+                _InscricaoEstadual = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("InscricaoEstadual");
                 OnInscricaoEstadualChanged();
             }
@@ -850,7 +856,7 @@ namespace Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String InscricaoMunicipal
         {
@@ -862,7 +868,7 @@ namespace Model
             {
                 OnInscricaoMunicipalChanging(value);
                 ReportPropertyChanging("InscricaoMunicipal");
-                _InscricaoMunicipal = StructuralObject.SetValidValue(value, true);
+                _InscricaoMunicipal = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("InscricaoMunicipal");
                 OnInscricaoMunicipalChanged();
             }
@@ -874,9 +880,9 @@ namespace Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> DataFundacao
+        public global::System.DateTime DataFundacao
         {
             get
             {
@@ -891,8 +897,8 @@ namespace Model
                 OnDataFundacaoChanged();
             }
         }
-        private Nullable<global::System.DateTime> _DataFundacao;
-        partial void OnDataFundacaoChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _DataFundacao;
+        partial void OnDataFundacaoChanging(global::System.DateTime value);
         partial void OnDataFundacaoChanged();
 
         #endregion
