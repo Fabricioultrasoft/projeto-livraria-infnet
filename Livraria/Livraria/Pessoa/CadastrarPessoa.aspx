@@ -4,5 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <h1>Cadastro de Pessoa</h1>
+<p>
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
+    </p>
 </asp:Content>
 

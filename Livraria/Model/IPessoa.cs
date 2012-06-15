@@ -7,6 +7,6 @@ namespace Model
 {
     public interface IPessoa
     {
-
+        void salvaNome(string nome);
     }
 }

@@ -8,6 +8,11 @@ namespace DAL
 {
     public class PessoaDAL : IPessoa
     {
+        LivrariaDBEntities ct = new LivrariaDBEntities();
 
+        public void salvaNome(string nome)
+        {
+            //salva no banco
+        }
     }
 }
