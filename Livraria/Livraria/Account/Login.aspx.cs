@@ -11,4 +11,9 @@ public partial class Account_Login : System.Web.UI.Page
     {
         RegisterHyperLink.NavigateUrl = "Register.aspx";
     }
+
+    protected void LoginUser_LoggedIn(object sender, EventArgs e)
+    {
+        Response.Redirect(@"~/Pessoa/CadastrarPessoa.aspx");
+    }
 }
