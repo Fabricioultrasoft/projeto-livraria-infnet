@@ -29,10 +29,18 @@
                 </asp:LoginView>
             </div>
             <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                <asp:Menu ID="NavigationMenuCliente" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                        <asp:MenuItem NavigateUrl="~/Produto/ListarProduto.aspx" Text="Produtos"/>
+                        <asp:MenuItem NavigateUrl="~/Produto/CadastrarProduto.aspx" Text="Perfil" />
+                    </Items>
+                </asp:Menu>
+                <asp:Menu ID="NavigationMenuVendedor" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Produto/ListarProduto.aspx" Text="Produtos"/>
+                        <asp:MenuItem NavigateUrl="~/Vendedor/ListarVendedor.aspx" Text="Vendedores"/>
+                        <asp:MenuItem NavigateUrl="~/Pessoa/ListarPessoa.aspx" Text="Pessoas" />
+                        <asp:MenuItem NavigateUrl="~/Vendas/ListarVendas.aspx" Text="Vendas" />
                     </Items>
                 </asp:Menu>
             </div>

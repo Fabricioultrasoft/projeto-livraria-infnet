@@ -6,25 +6,16 @@ using System.Web.Security;
 
 namespace Controller
 {
-    public class User
+    public class cUsuarios
     {
         public bool isVendedor()
         {
-
-            string roleName = Roles.GetRolesForUser()[0];
-
-
-            return roleName.Equals("Vendedor");
+            return Roles.IsUserInRole("Vendedor");
         }
-        
+
         public bool isCliente()
         {
-
-            string roleName = Roles.GetRolesForUser()[0];
-
-
-            return roleName.Equals("Cliente");
+            return Roles.IsUserInRole("Cliente");
         }
-
     }
 }
