@@ -1,10 +1,9 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeFile="Register.aspx.cs" Inherits="Account_Register" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="CadastrarVendedor.aspx.cs" Inherits="Vendedor_CadastrarVendedor" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="false" OnCreatedUser="RegisterUser_CreatedUser">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+<asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="false" OnCreatedUser="RegisterUser_CreatedUser">
         <LayoutTemplate>
             <asp:PlaceHolder ID="wizardStepPlaceholder" runat="server"></asp:PlaceHolder>
             <asp:PlaceHolder ID="navigationPlaceholder" runat="server"></asp:PlaceHolder>
@@ -13,11 +12,8 @@
             <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
                 <ContentTemplate>
                     <h2>
-                        Nova Conta.
+                        Cadastro de Vendedor.
                     </h2>
-                    <p>
-                        Preencha os campos abaixo pra criar sua conta.
-                    </p>
                     <p>
                         Senha precisa ter pelo menos <%= Membership.MinRequiredPasswordLength %> caracteres.
                     </p>
@@ -74,7 +70,8 @@
                 <CustomNavigationTemplate>
                 </CustomNavigationTemplate>
             </asp:CreateUserWizardStep>
-<asp:CompleteWizardStep runat="server"></asp:CompleteWizardStep>
+<asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server"></asp:CompleteWizardStep>
         </WizardSteps>
     </asp:CreateUserWizard>
 </asp:Content>
+
