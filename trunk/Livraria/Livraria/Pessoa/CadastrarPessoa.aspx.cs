@@ -15,7 +15,27 @@ public partial class Pessoa_CadastrarUsuario : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string nomePessoa = TextBox1.Text;
+        string nomePessoa = tbNome.Text;
+        string email = TbEmail.Text;
+        string usuario = TbNomeUsuario.Text;
+        string senha = TbSenha.Text;
+        string logradouro = TbLogradouro.Text;
+        string numeroLograd = TbNumero.Text;
+        string complementoLograd = TbComplemento.Text;
+        string bairro = TbBairro.Text;
+        string cidade = TbCidade.Text;
+        string uf = TbUf.Text;
+
+
         CadadastroPessoaFacade.getNomePessoa(nomePessoa);
+        CadadastroPessoaFacade.getEmail(email);
+        CadadastroPessoaFacade.getUsuario(usuario);
+        CadadastroPessoaFacade.getSenha(senha);
+        CadadastroPessoaFacade.getLogradouro(logradouro);
+        CadadastroPessoaFacade.getNumLograd(numeroLograd);
+        CadadastroPessoaFacade.getComplementoLograd(complementoLograd);
+        CadadastroPessoaFacade.getBairro(bairro);
+        CadadastroPessoaFacade.getCidade(cidade);
+        CadadastroPessoaFacade.getUf(uf);
     }
 }
