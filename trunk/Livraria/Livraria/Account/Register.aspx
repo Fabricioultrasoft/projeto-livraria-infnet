@@ -45,7 +45,7 @@
                                 <asp:RegularExpressionValidator ID="EmailRegExValidator" runat="server" Display="Dynamic"
                                      ErrorMessage="Campo Email preenchido com valor inválido" CssClass="failureNotification"
                                     ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
-                                    ControlToValidate="Email">*</asp:RegularExpressionValidator>
+                                    ControlToValidate="Email" ValidationGroup="RegisterUserValidationGroup">*</asp:RegularExpressionValidator>
                             </p>
                             <p>
                                 <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Senha:</asp:Label>

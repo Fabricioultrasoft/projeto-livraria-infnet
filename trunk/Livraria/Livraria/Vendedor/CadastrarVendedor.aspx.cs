@@ -8,15 +8,18 @@ using System.Web.Security;
 
 public partial class Vendedor_CadastrarVendedor : System.Web.UI.Page
 {
+    fCadastroVendedor cadastroVendedorFacade = new fCadastroVendedor();
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
+
     protected void RegisterUser_CreatedUser(object sender, EventArgs e)
     {
-        string userName = RegisterUser.UserName;
+        string nomeUsuario = RegisterUser.UserName;
 
-        Roles.AddUserToRole(userName, "Vendedor");
+        cadastroVendedorFacade.RegistrarUsuario(nomeUsuario);
 
         Response.Redirect("ListarVendedor.aspx");
     }
