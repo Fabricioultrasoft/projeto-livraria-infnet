@@ -8,7 +8,8 @@
         Log In
     </h2>
     <p>
-        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">Criar Nova Conta</asp:HyperLink>
+        <asp:HyperLink ID="RegisterHyperLink" runat="server" NavigateUrl="Register.aspx"
+            EnableViewState="false">Criar Nova Conta</asp:HyperLink>
     </p>
     <asp:Login ID="LoginUser" runat="server" EnableViewState="false" 
         RenderOuterTable="false" onloggedin="LoginUser_LoggedIn">

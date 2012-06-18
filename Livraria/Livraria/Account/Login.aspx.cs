@@ -9,7 +9,7 @@ public partial class Account_Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        RegisterHyperLink.NavigateUrl = "Register.aspx";
+        
     }
 
     protected void LoginUser_LoggedIn(object sender, EventArgs e)

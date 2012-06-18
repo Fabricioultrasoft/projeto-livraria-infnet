@@ -9,7 +9,7 @@ using Controller;
 /// </summary>
 public class fMaster
 {
-    private cUsuarios myControler = new cUsuarios();
+    private cUsuario myControler = new cUsuario();
 
     public bool IsVendedor()
     {
