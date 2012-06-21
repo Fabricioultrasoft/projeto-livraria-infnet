@@ -9,7 +9,7 @@ using Model;
 /// <summary>
 /// Summary description for cCadastroPessoa
 /// </summary>
-public class fCadastroPessoa:IPessoa
+public class fCadastroPessoa
 {
 
     private cPessoa myControler;
@@ -18,9 +18,6 @@ public class fCadastroPessoa:IPessoa
 	{
 		myControler = new cPessoa(new PessoaDAL());
 	}
-
-
-
 
     public void salvaPessoa(Pessoa pessoa)
     {

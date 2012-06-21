@@ -6,7 +6,8 @@ using Model;
 
 namespace DAL
 {
-    public class PessoaDAL : BaseDAL<Pessoa>
+    public abstract class BaseDAL<T>
     {
+        
     }
 }

@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Model;
+using DAL;
 
 namespace Controller
 {
-    public class cPessoa:IPessoa
+    public class cPessoa
     {
-        private IPessoa DAL;
+        private BaseDAL<Pessoa> DAL;
 
-        public cPessoa(IPessoa DalPessoa)
+        public cPessoa(BaseDAL<Pessoa> DalPessoa)
         {
             this.DAL = DalPessoa;
         }
-
-
 
 
         public void salvaPessoa(Pessoa pessoa)
@@ -37,5 +36,6 @@ namespace Controller
         {
             throw new NotImplementedException();
         }
+
     }
 }

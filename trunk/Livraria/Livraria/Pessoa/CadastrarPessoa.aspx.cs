@@ -16,23 +16,12 @@ public partial class Pessoa_CadastrarUsuario : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string nomePessoa = tbNome.Text;
-        string email = TbEmail.Text;
-        string usuario = TbNomeUsuario.Text;
-        string senha = TbSenha.Text;
+        //string nomePessoa = tbNome.Text;
+        //string email = TbEmail.Text;
+        //string usuario = TbNomeUsuario.Text;
+        //string senha = TbSenha.Text;
 
-        Pessoa pessoa = new Pessoa();
+        //Pessoa pessoa = new Pessoa();  
 
-
-
-
-
-      
-
-
-
-       
-
-      
     }
 }
