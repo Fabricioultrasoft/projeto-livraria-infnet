@@ -17,9 +17,9 @@ namespace Controller
         }
 
 
-        public void salvaPessoa(Pessoa pessoa)
+        public void salvarPessoa(Pessoa_Fisica pessoa)
         {
-            throw new NotImplementedException();
+            DAL.salvar(pessoa);
         }
 
         public void deletarPessoa(Pessoa pessoa)

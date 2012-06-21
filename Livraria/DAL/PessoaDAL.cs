@@ -8,5 +8,12 @@ namespace DAL
 {
     public class PessoaDAL : BaseDAL<Pessoa>
     {
+
+        public override void salvar(Pessoa reg)
+        {
+            ct.Pessoa.AddObject(reg);
+
+            ct.SaveChanges();
+        }
     }
 }

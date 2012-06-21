@@ -12,16 +12,18 @@ using Model;
 public class fCadastroPessoa
 {
 
-    private cPessoa myControler;
+    private cPessoa PessoaControler;
 
 	public fCadastroPessoa()
 	{
-		myControler = new cPessoa(new PessoaDAL());
+		PessoaControler = new cPessoa(new PessoaDAL());
 	}
 
-    public void salvaPessoa(Pessoa pessoa)
+    public void salvarPessoa(Pessoa_Fisica pessoa)
     {
-        throw new NotImplementedException();
+        pessoa.UserId = cUsuario.getCurrentUserId();
+
+        PessoaControler.salvarPessoa(pessoa);
     }
 
     public void deletarPessoa(Pessoa pessoa)

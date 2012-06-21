@@ -14,14 +14,30 @@ public partial class Pessoa_CadastrarUsuario : System.Web.UI.Page
     {
 
     }
-    protected void Button1_Click(object sender, EventArgs e)
+
+    protected void SalvarButton_Click(object sender, EventArgs e)
     {
-        //string nomePessoa = tbNome.Text;
-        //string email = TbEmail.Text;
-        //string usuario = TbNomeUsuario.Text;
-        //string senha = TbSenha.Text;
+        string tipoPessoa = TipoPessoaRadioButtonList.SelectedValue;
 
-        //Pessoa pessoa = new Pessoa();  
+        switch (tipoPessoa)
+        {
+            case "PF":
 
+                Pessoa_Fisica pf = new Pessoa_Fisica();
+
+                pf.Nome = NomeTextBox.Text;
+                pf.CPF = CPFTextBox.Text;
+                pf.RG = RGTextBox.Text;
+                pf.DataNascimento = DateTime.Parse(DataNascimentoTextBox.Text);
+                pf.Observacao = ObservacaoTextBox.Text;
+
+                CadadastroPessoaFacade.salvarPessoa(pf);
+
+                break;
+            case "PJ":
+                break;
+            default:
+                break;
+        }
     }
 }
