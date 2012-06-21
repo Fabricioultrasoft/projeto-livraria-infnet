@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Model;
 
 public partial class Pessoa_CadastrarUsuario : System.Web.UI.Page
 {
@@ -19,23 +20,19 @@ public partial class Pessoa_CadastrarUsuario : System.Web.UI.Page
         string email = TbEmail.Text;
         string usuario = TbNomeUsuario.Text;
         string senha = TbSenha.Text;
-        string logradouro = TbLogradouro.Text;
-        string numeroLograd = TbNumero.Text;
-        string complementoLograd = TbComplemento.Text;
-        string bairro = TbBairro.Text;
-        string cidade = TbCidade.Text;
-        string uf = TbUf.Text;
+
+        Pessoa pessoa = new Pessoa();
 
 
-        CadadastroPessoaFacade.getNomePessoa(nomePessoa);
-        CadadastroPessoaFacade.getEmail(email);
-        CadadastroPessoaFacade.getUsuario(usuario);
-        CadadastroPessoaFacade.getSenha(senha);
-        CadadastroPessoaFacade.getLogradouro(logradouro);
-        CadadastroPessoaFacade.getNumLograd(numeroLograd);
-        CadadastroPessoaFacade.getComplementoLograd(complementoLograd);
-        CadadastroPessoaFacade.getBairro(bairro);
-        CadadastroPessoaFacade.getCidade(cidade);
-        CadadastroPessoaFacade.getUf(uf);
+
+
+
+      
+
+
+
+       
+
+      
     }
 }
