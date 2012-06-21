@@ -8,45 +8,25 @@ namespace DAL
 {
     public class PessoaDAL : IPessoa
     {
-        public void salvaNome(string nome)
+
+        public void salvaPessoa(Pessoa pessoa)
         {
-            //salva no banco
+            throw new NotImplementedException();
         }
-        public void salvaEmail(string email)
+
+        public void deletarPessoa(Pessoa pessoa)
         {
-            //salva no banco
+            throw new NotImplementedException();
         }
-        public void salvaUsuario(string usuario)
+
+        public List<Pessoa> selectPessoa()
         {
-            //salva no banco
+            throw new NotImplementedException();
         }
-        public void salvaSenha(string senha)
+
+        public void updatePessoa(Pessoa pessoa)
         {
-            //salva no banco
-        }
-        public void salvaLogradouro(string logradouro)
-        {
-            //salva no banco
-        }
-        public void salvaNumLograd(string numeroLograd)
-        {
-            //salva no banco
-        }
-        public void salvaComplementoLograd(string complementoLograd)
-        {
-            //salva no banco
-        }
-        public void salvaBairro(string bairro)
-        {
-            //salva no banco
-        }
-        public void salvaCidade(string cidade)
-        {
-            //salva no banco
-        }
-        public void salvaUf(string uf)
-        {
-            //salva no banco
+            throw new NotImplementedException();
         }
     }
 }
