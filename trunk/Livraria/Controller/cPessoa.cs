@@ -6,7 +6,7 @@ using Model;
 
 namespace Controller
 {
-    public class cPessoa
+    public class cPessoa:IPessoa
     {
         private IPessoa DAL;
 
@@ -15,46 +15,27 @@ namespace Controller
             this.DAL = DalPessoa;
         }
 
-        public void getNome(string nome)
+
+
+
+        public void salvaPessoa(Pessoa pessoa)
         {
-            DAL.salvaNome(nome);
+            throw new NotImplementedException();
         }
-        public void getEmail(string email)
+
+        public void deletarPessoa(Pessoa pessoa)
         {
-            DAL.salvaEmail(email);
+            throw new NotImplementedException();
         }
-        public void getUsuario(string usuario)
+
+        public List<Pessoa> selectPessoa()
         {
-            DAL.salvaUsuario(usuario);
+            throw new NotImplementedException();
         }
-        public void getSenha(string senha)
+
+        public void updatePessoa(Pessoa pessoa)
         {
-            DAL.salvaSenha(senha);
+            throw new NotImplementedException();
         }
-        public void getLogradouro(string logradouro)
-        {
-            DAL.salvaLogradouro(logradouro);
-        }
-        public void getNumLograd(string numeroLograd)
-        {
-            DAL.salvaNumLograd(numeroLograd);
-        }
-        public void getComplementoLograd(string complementoLograd)
-        {
-            DAL.salvaComplementoLograd(complementoLograd);
-        }
-        public void getBairro (string bairro)
-        {
-            DAL.salvaBairro(bairro);
-        }
-        public void getCidade(string cidade)
-        {
-            DAL.salvaCidade(cidade);
-        }
-        public void getUf(string uf)
-        {
-            DAL.salvaUf(uf);
-        }
-        
     }
 }
