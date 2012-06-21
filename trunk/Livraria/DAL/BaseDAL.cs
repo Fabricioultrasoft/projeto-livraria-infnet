@@ -8,6 +8,9 @@ namespace DAL
 {
     public abstract class BaseDAL<T>
     {
-        
+        protected LivrariaDBEntities ct = new LivrariaDBEntities();
+
+        public abstract void salvar(T reg);
+
     }
 }

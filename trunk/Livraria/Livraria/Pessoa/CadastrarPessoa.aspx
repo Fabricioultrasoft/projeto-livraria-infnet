@@ -9,11 +9,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-<h2>Cadastro de Pessoa</h2>
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+    <h2>Cadastro de Pessoa</h2>
 
     <asp:Panel ID="TipoPessoaPanel" runat="server">
         <strong><span class="style1">Tipo de Pessoa: </span>
-        <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
+        <asp:RadioButtonList ID="TipoPessoaRadioButtonList" runat="server" 
             RepeatDirection="Horizontal">
             <asp:ListItem Selected="True" Value="PF">Pessoa Física</asp:ListItem>
             <asp:ListItem Value="PJ">PessoaJuridica</asp:ListItem>
@@ -23,55 +24,63 @@
     </asp:Panel>
 
     <asp:Panel ID="PessoaFisicaPanel" runat="server" GroupingText="Identificação">
-        <asp:Button ID="SalvarButton" runat="server" Text="Salvar" />
+        <asp:Button ID="SalvarButton" runat="server" Text="Salvar" 
+            onclick="SalvarButton_Click" style="height: 26px" />
         <table width="400px">
             <tr>
-                <td>
+                <td nowrap="nowrap">
                     Nome:</td>
-                <td>
+                <td nowrap="nowrap">
                     <asp:TextBox ID="NomeTextBox" runat="server" Width="309px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="NomeRequiredFieldValidator" runat="server" 
+                        ControlToValidate="NomeTextBox" Display="Dynamic" 
+                        ErrorMessage="O campo Nome é obrigatório.">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td nowrap="nowrap">
                     CPF:</td>
-                <td>
-                    <asp:TextBox ID="EmailTextBox" runat="server" Width="309px"></asp:TextBox>
+                <td nowrap="nowrap">
+                    <asp:TextBox ID="CPFTextBox" runat="server" Width="309px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="CPFRequiredFieldValidator" runat="server" 
+                        ControlToValidate="CPFTextBox" Display="Dynamic" 
+                        ErrorMessage="O campo CPF é obrigatório.">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td nowrap="nowrap">
                     RG:</td>
-                <td>
-                    <asp:TextBox ID="EmailTextBox0" runat="server" Width="309px"></asp:TextBox>
+                <td nowrap="nowrap">
+                    <asp:TextBox ID="RGTextBox" runat="server" Width="309px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RGRequiredFieldValidator" runat="server" 
+                        ControlToValidate="RGTextBox" Display="Dynamic" 
+                        ErrorMessage="O campo RG é obrigatório.">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td nowrap="nowrap">
                     Data de Nascimento:</td>
-                <td>
-                    <asp:TextBox ID="EmailTextBox1" runat="server" Width="309px"></asp:TextBox>
+                <td nowrap="nowrap">
+                    <asp:TextBox ID="DataNascimentoTextBox" runat="server" Width="309px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="DataNascimentoRequiredFieldValidator" 
+                        runat="server" ControlToValidate="DataNascimentoTextBox" Display="Dynamic" 
+                        ErrorMessage="O campo Data de Nascimento é obrigatório.">*</asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="DataNascimentoCompareValidator" runat="server" 
+                        ControlToValidate="DataNascimentoTextBox" Display="Dynamic" 
+                        ErrorMessage="Valor inválido para Data de Nascimento " Type="Date">*</asp:CompareValidator>
                 </td>
             </tr>
             <tr>
-                <td valign="top">
+                <td valign="top" nowrap="nowrap">
                     Observação:</td>
-                <td>
-                    <asp:TextBox ID="EmailTextBox2" runat="server" Height="97px" 
+                <td nowrap="nowrap">
+                    <asp:TextBox ID="ObservacaoTextBox" runat="server" Height="97px" 
                         TextMode="MultiLine" Width="309px"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top">
-                    &nbsp;</td>
-                <td align="right">
-                    
                 </td>
             </tr>
         </table>
     </asp:Panel>
     <br />
-<<<<<<< .mine
     <asp:Panel ID="Endereco" runat="server" GroupingText="Lista de Endereço">
         &nbsp;<asp:GridView ID="EnderecoGridView" runat="server" 
     CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -88,22 +97,6 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
     </asp:Panel>
-    <br />
-    <asp:Label ID="LbNomeUsuario" runat="server" Text="Nome de Usuário:  "></asp:Label>
-    <asp:TextBox ID="TbNomeUsuario" runat="server" Width="179px"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Label ID="Label3" runat="server" Text="Senha:  "></asp:Label>
-    <asp:TextBox ID="TbSenha" runat="server"></asp:TextBox>
-    <h4>&nbsp;</h4>
-    <br />
-    <asp:Button ID="btCadastrar" runat="server" onclick="Button1_Click" 
-        Text="Cadastrar" />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    </p>
+    
 </asp:Content>
 

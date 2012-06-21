@@ -11,6 +11,14 @@ namespace Controller
         private string roleVendedor = "Vendedor";
         private string roleCliente = "Cliente";
 
+        public static Guid getCurrentUserId()
+        {
+            MembershipUser user = Membership.GetUser();
+
+            return (Guid)user.ProviderUserKey;
+
+        }
+
         public bool isVendedor()
         {
             return Roles.IsUserInRole(roleVendedor);
@@ -46,7 +54,7 @@ namespace Controller
 
 	        }
 
-            return (from U in ListaUsuarios select new { U.UserName, U.Email }).AsEnumerable(); 
+            return (from U in ListaUsuarios select new { U.ProviderUserKey, U.UserName, U.Email }).AsEnumerable(); 
         }
 
         public void Excluir(string nomeUsuario)

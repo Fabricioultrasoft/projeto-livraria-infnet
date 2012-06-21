@@ -19,12 +19,12 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK__aspnet_Me__UserI__22AA2996", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.aspnet_Membership), true)]
-[assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK_Pessoa_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.aspnet_Users), "Pessoa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.Pessoa), true)]
-[assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK_Endereco_Pessoa", "Pessoa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.Pessoa), "Endereco", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.Endereco), true)]
 [assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK_ItemVenda_Produto", "Produto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.Produto), "ItemVenda", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.ItemVenda), true)]
 [assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK_ItemVenda_Venda", "Venda", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.Venda), "ItemVenda", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.ItemVenda), true)]
-[assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK_Telefone_Pessoa", "Pessoa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.Pessoa), "Telefone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.Telefone), true)]
 [assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK_Venda_Pessoa", "Pessoa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.Pessoa), "Venda", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.Venda), true)]
+[assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK_Endereco_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.aspnet_Users), "Endereco", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.Endereco), true)]
+[assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK_Telefone_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.aspnet_Users), "Telefone", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.Telefone), true)]
+[assembly: EdmRelationshipAttribute("LivrariaDBModel", "FK_Pessoa_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.aspnet_Users), "Pessoa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.Pessoa), true)]
 
 #endregion
 
@@ -111,22 +111,6 @@ namespace Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Endereco> Endereco
-        {
-            get
-            {
-                if ((_Endereco == null))
-                {
-                    _Endereco = base.CreateObjectSet<Endereco>("Endereco");
-                }
-                return _Endereco;
-            }
-        }
-        private ObjectSet<Endereco> _Endereco;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<ItemVenda> ItemVenda
         {
             get
@@ -175,22 +159,6 @@ namespace Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Telefone> Telefone
-        {
-            get
-            {
-                if ((_Telefone == null))
-                {
-                    _Telefone = base.CreateObjectSet<Telefone>("Telefone");
-                }
-                return _Telefone;
-            }
-        }
-        private ObjectSet<Telefone> _Telefone;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Venda> Venda
         {
             get
@@ -203,6 +171,38 @@ namespace Model
             }
         }
         private ObjectSet<Venda> _Venda;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Endereco> Endereco
+        {
+            get
+            {
+                if ((_Endereco == null))
+                {
+                    _Endereco = base.CreateObjectSet<Endereco>("Endereco");
+                }
+                return _Endereco;
+            }
+        }
+        private ObjectSet<Endereco> _Endereco;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Telefone> Telefone
+        {
+            get
+            {
+                if ((_Telefone == null))
+                {
+                    _Telefone = base.CreateObjectSet<Telefone>("Telefone");
+                }
+                return _Telefone;
+            }
+        }
+        private ObjectSet<Telefone> _Telefone;
 
         #endregion
         #region AddTo Methods
@@ -221,14 +221,6 @@ namespace Model
         public void AddToaspnet_Users(aspnet_Users aspnet_Users)
         {
             base.AddObject("aspnet_Users", aspnet_Users);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Endereco EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEndereco(Endereco endereco)
-        {
-            base.AddObject("Endereco", endereco);
         }
     
         /// <summary>
@@ -256,19 +248,27 @@ namespace Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Telefone EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTelefone(Telefone telefone)
-        {
-            base.AddObject("Telefone", telefone);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Venda EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToVenda(Venda venda)
         {
             base.AddObject("Venda", venda);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Endereco EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEndereco(Endereco endereco)
+        {
+            base.AddObject("Endereco", endereco);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Telefone EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTelefone(Telefone telefone)
+        {
+            base.AddObject("Telefone", telefone);
         }
 
         #endregion
@@ -1136,18 +1136,40 @@ namespace Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Pessoa_aspnet_Users", "Pessoa")]
-        public EntityCollection<Pessoa> Pessoa
+        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Endereco_aspnet_Users", "Endereco")]
+        public EntityCollection<Endereco> Endereco
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pessoa>("LivrariaDBModel.FK_Pessoa_aspnet_Users", "Pessoa");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Endereco>("LivrariaDBModel.FK_Endereco_aspnet_Users", "Endereco");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pessoa>("LivrariaDBModel.FK_Pessoa_aspnet_Users", "Pessoa", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Endereco>("LivrariaDBModel.FK_Endereco_aspnet_Users", "Endereco", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Telefone_aspnet_Users", "Telefone")]
+        public EntityCollection<Telefone> Telefone
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Telefone>("LivrariaDBModel.FK_Telefone_aspnet_Users", "Telefone");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Telefone>("LivrariaDBModel.FK_Telefone_aspnet_Users", "Telefone", value);
                 }
             }
         }
@@ -1173,8 +1195,8 @@ namespace Model
         /// <param name="uF">Initial value of the UF property.</param>
         /// <param name="cidade">Initial value of the Cidade property.</param>
         /// <param name="bairro">Initial value of the Bairro property.</param>
-        /// <param name="pessoa_Id">Initial value of the Pessoa_Id property.</param>
-        public static Endereco CreateEndereco(global::System.Int32 id, global::System.String logradouro, global::System.String uF, global::System.String cidade, global::System.String bairro, global::System.Int32 pessoa_Id)
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static Endereco CreateEndereco(global::System.Int32 id, global::System.String logradouro, global::System.String uF, global::System.String cidade, global::System.String bairro, global::System.Guid userId)
         {
             Endereco endereco = new Endereco();
             endereco.Id = id;
@@ -1182,7 +1204,7 @@ namespace Model
             endereco.UF = uF;
             endereco.Cidade = cidade;
             endereco.Bairro = bairro;
-            endereco.Pessoa_Id = pessoa_Id;
+            endereco.UserId = userId;
             return endereco;
         }
 
@@ -1341,24 +1363,24 @@ namespace Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Pessoa_Id
+        public global::System.Guid UserId
         {
             get
             {
-                return _Pessoa_Id;
+                return _UserId;
             }
             set
             {
-                OnPessoa_IdChanging(value);
-                ReportPropertyChanging("Pessoa_Id");
-                _Pessoa_Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Pessoa_Id");
-                OnPessoa_IdChanged();
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
             }
         }
-        private global::System.Int32 _Pessoa_Id;
-        partial void OnPessoa_IdChanging(global::System.Int32 value);
-        partial void OnPessoa_IdChanged();
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
 
         #endregion
     
@@ -1370,16 +1392,16 @@ namespace Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Endereco_Pessoa", "Pessoa")]
-        public Pessoa Pessoa
+        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Endereco_aspnet_Users", "aspnet_Users")]
+        public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pessoa>("LivrariaDBModel.FK_Endereco_Pessoa", "Pessoa").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("LivrariaDBModel.FK_Endereco_aspnet_Users", "aspnet_Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pessoa>("LivrariaDBModel.FK_Endereco_Pessoa", "Pessoa").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("LivrariaDBModel.FK_Endereco_aspnet_Users", "aspnet_Users").Value = value;
             }
         }
         /// <summary>
@@ -1387,17 +1409,17 @@ namespace Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Pessoa> PessoaReference
+        public EntityReference<aspnet_Users> aspnet_UsersReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pessoa>("LivrariaDBModel.FK_Endereco_Pessoa", "Pessoa");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("LivrariaDBModel.FK_Endereco_aspnet_Users", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pessoa>("LivrariaDBModel.FK_Endereco_Pessoa", "Pessoa", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("LivrariaDBModel.FK_Endereco_aspnet_Users", "aspnet_Users", value);
                 }
             }
         }
@@ -1623,8 +1645,8 @@ namespace Model
     [EdmEntityTypeAttribute(NamespaceName="LivrariaDBModel", Name="Pessoa")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [KnownTypeAttribute(typeof(Pessoa_Fisica))]
     [KnownTypeAttribute(typeof(Pessoa_Juridica))]
+    [KnownTypeAttribute(typeof(Pessoa_Fisica))]
     public partial class Pessoa : EntityObject
     {
         #region Factory Method
@@ -1633,12 +1655,12 @@ namespace Model
         /// Create a new Pessoa object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="login">Initial value of the Login property.</param>
-        public static Pessoa CreatePessoa(global::System.Int32 id, global::System.Guid login)
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static Pessoa CreatePessoa(global::System.Int32 id, global::System.Guid userId)
         {
             Pessoa pessoa = new Pessoa();
             pessoa.Id = id;
-            pessoa.Login = login;
+            pessoa.UserId = userId;
             return pessoa;
         }
 
@@ -1675,30 +1697,6 @@ namespace Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Login
-        {
-            get
-            {
-                return _Login;
-            }
-            set
-            {
-                OnLoginChanging(value);
-                ReportPropertyChanging("Login");
-                _Login = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Login");
-                OnLoginChanged();
-            }
-        }
-        private global::System.Guid _Login;
-        partial void OnLoginChanging(global::System.Guid value);
-        partial void OnLoginChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Observacao
@@ -1719,10 +1717,56 @@ namespace Model
         private global::System.String _Observacao;
         partial void OnObservacaoChanging(global::System.String value);
         partial void OnObservacaoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
 
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Venda_Pessoa", "Venda")]
+        public EntityCollection<Venda> Venda
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Venda>("LivrariaDBModel.FK_Venda_Pessoa", "Venda");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Venda>("LivrariaDBModel.FK_Venda_Pessoa", "Venda", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1761,72 +1805,6 @@ namespace Model
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Endereco_Pessoa", "Endereco")]
-        public EntityCollection<Endereco> Endereco
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Endereco>("LivrariaDBModel.FK_Endereco_Pessoa", "Endereco");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Endereco>("LivrariaDBModel.FK_Endereco_Pessoa", "Endereco", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Telefone_Pessoa", "Telefone")]
-        public EntityCollection<Telefone> Telefone
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Telefone>("LivrariaDBModel.FK_Telefone_Pessoa", "Telefone");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Telefone>("LivrariaDBModel.FK_Telefone_Pessoa", "Telefone", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Venda_Pessoa", "Venda")]
-        public EntityCollection<Venda> Venda
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Venda>("LivrariaDBModel.FK_Venda_Pessoa", "Venda");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Venda>("LivrariaDBModel.FK_Venda_Pessoa", "Venda", value);
-                }
-            }
-        }
 
         #endregion
     }
@@ -1845,16 +1823,16 @@ namespace Model
         /// Create a new Pessoa_Fisica object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="login">Initial value of the Login property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="nome">Initial value of the Nome property.</param>
         /// <param name="cPF">Initial value of the CPF property.</param>
         /// <param name="rG">Initial value of the RG property.</param>
         /// <param name="dataNascimento">Initial value of the DataNascimento property.</param>
-        public static Pessoa_Fisica CreatePessoa_Fisica(global::System.Int32 id, global::System.Guid login, global::System.String nome, global::System.String cPF, global::System.String rG, global::System.String dataNascimento)
+        public static Pessoa_Fisica CreatePessoa_Fisica(global::System.Int32 id, global::System.Guid userId, global::System.String nome, global::System.String cPF, global::System.String rG, global::System.DateTime dataNascimento)
         {
             Pessoa_Fisica pessoa_Fisica = new Pessoa_Fisica();
             pessoa_Fisica.Id = id;
-            pessoa_Fisica.Login = login;
+            pessoa_Fisica.UserId = userId;
             pessoa_Fisica.Nome = nome;
             pessoa_Fisica.CPF = cPF;
             pessoa_Fisica.RG = rG;
@@ -1942,7 +1920,7 @@ namespace Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String DataNascimento
+        public global::System.DateTime DataNascimento
         {
             get
             {
@@ -1952,13 +1930,13 @@ namespace Model
             {
                 OnDataNascimentoChanging(value);
                 ReportPropertyChanging("DataNascimento");
-                _DataNascimento = StructuralObject.SetValidValue(value, false);
+                _DataNascimento = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("DataNascimento");
                 OnDataNascimentoChanged();
             }
         }
-        private global::System.String _DataNascimento;
-        partial void OnDataNascimentoChanging(global::System.String value);
+        private global::System.DateTime _DataNascimento;
+        partial void OnDataNascimentoChanging(global::System.DateTime value);
         partial void OnDataNascimentoChanged();
 
         #endregion
@@ -1979,15 +1957,15 @@ namespace Model
         /// Create a new Pessoa_Juridica object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="login">Initial value of the Login property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="razaoSocial">Initial value of the RazaoSocial property.</param>
         /// <param name="cNPJ">Initial value of the CNPJ property.</param>
         /// <param name="dataFundacao">Initial value of the DataFundacao property.</param>
-        public static Pessoa_Juridica CreatePessoa_Juridica(global::System.Int32 id, global::System.Guid login, global::System.String razaoSocial, global::System.String cNPJ, global::System.DateTime dataFundacao)
+        public static Pessoa_Juridica CreatePessoa_Juridica(global::System.Int32 id, global::System.Guid userId, global::System.String razaoSocial, global::System.String cNPJ, global::System.DateTime dataFundacao)
         {
             Pessoa_Juridica pessoa_Juridica = new Pessoa_Juridica();
             pessoa_Juridica.Id = id;
-            pessoa_Juridica.Login = login;
+            pessoa_Juridica.UserId = userId;
             pessoa_Juridica.RazaoSocial = razaoSocial;
             pessoa_Juridica.CNPJ = cNPJ;
             pessoa_Juridica.DataFundacao = dataFundacao;
@@ -2294,13 +2272,13 @@ namespace Model
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="numero">Initial value of the Numero property.</param>
-        /// <param name="pessoa_Id">Initial value of the Pessoa_Id property.</param>
-        public static Telefone CreateTelefone(global::System.Int32 id, global::System.String numero, global::System.Int32 pessoa_Id)
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static Telefone CreateTelefone(global::System.Int32 id, global::System.String numero, global::System.Guid userId)
         {
             Telefone telefone = new Telefone();
             telefone.Id = id;
             telefone.Numero = numero;
-            telefone.Pessoa_Id = pessoa_Id;
+            telefone.UserId = userId;
             return telefone;
         }
 
@@ -2387,24 +2365,24 @@ namespace Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Pessoa_Id
+        public global::System.Guid UserId
         {
             get
             {
-                return _Pessoa_Id;
+                return _UserId;
             }
             set
             {
-                OnPessoa_IdChanging(value);
-                ReportPropertyChanging("Pessoa_Id");
-                _Pessoa_Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Pessoa_Id");
-                OnPessoa_IdChanged();
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
             }
         }
-        private global::System.Int32 _Pessoa_Id;
-        partial void OnPessoa_IdChanging(global::System.Int32 value);
-        partial void OnPessoa_IdChanged();
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
 
         #endregion
     
@@ -2416,16 +2394,16 @@ namespace Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Telefone_Pessoa", "Pessoa")]
-        public Pessoa Pessoa
+        [EdmRelationshipNavigationPropertyAttribute("LivrariaDBModel", "FK_Telefone_aspnet_Users", "aspnet_Users")]
+        public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pessoa>("LivrariaDBModel.FK_Telefone_Pessoa", "Pessoa").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("LivrariaDBModel.FK_Telefone_aspnet_Users", "aspnet_Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pessoa>("LivrariaDBModel.FK_Telefone_Pessoa", "Pessoa").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("LivrariaDBModel.FK_Telefone_aspnet_Users", "aspnet_Users").Value = value;
             }
         }
         /// <summary>
@@ -2433,17 +2411,17 @@ namespace Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Pessoa> PessoaReference
+        public EntityReference<aspnet_Users> aspnet_UsersReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pessoa>("LivrariaDBModel.FK_Telefone_Pessoa", "Pessoa");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("LivrariaDBModel.FK_Telefone_aspnet_Users", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pessoa>("LivrariaDBModel.FK_Telefone_Pessoa", "Pessoa", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("LivrariaDBModel.FK_Telefone_aspnet_Users", "aspnet_Users", value);
                 }
             }
         }
