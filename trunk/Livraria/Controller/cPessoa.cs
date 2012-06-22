@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Model;
 using DAL;
+using Controller.Exceptions;
 
 namespace Controller
 {
@@ -20,6 +21,8 @@ namespace Controller
         public void salvarPessoa(Pessoa_Fisica pessoa)
         {
             DAL.salvar(pessoa);
+
+            throw new InformationException("Registro salvo com sucesso!");
         }
 
         public void deletarPessoa(Pessoa pessoa)

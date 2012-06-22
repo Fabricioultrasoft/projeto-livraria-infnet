@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="cPessoa.cs" />
     <Compile Include="cUsuario.cs" />
+    <Compile Include="Excepitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
