@@ -9,6 +9,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    <asp:Label ID="ErroLabel" runat="server" ></asp:Label>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
     <h2>Cadastro de Pessoa</h2>
 
