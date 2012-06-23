@@ -10,16 +10,24 @@ namespace Controller
 {
     public class cPessoa
     {
-        private BaseDAL<Pessoa> DAL;
+        private IPessoa DAL;
 
-        public cPessoa(BaseDAL<Pessoa> DalPessoa)
+        public cPessoa(IPessoa DalPessoa)
         {
             this.DAL = DalPessoa;
         }
 
 
+
         public void salvarPessoa(Pessoa_Fisica pessoa)
         {
+            int count = DAL.PesquisarPessoaFisica(pessoa.Nome, pessoa.CPF, pessoa.RG).Count;
+
+            if (count > 0)
+            {
+                throw new WarningException("Já existe uma pessoa cadastrada com esses dados.");
+            }
+
             DAL.salvar(pessoa);
 
             throw new InformationException("Registro salvo com sucesso!");
