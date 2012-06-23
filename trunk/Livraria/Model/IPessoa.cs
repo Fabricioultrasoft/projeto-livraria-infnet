@@ -7,9 +7,9 @@ namespace Model
 {
     public interface IPessoa
     {
-        void salvaPessoa(Pessoa pessoa);
-        void deletarPessoa(Pessoa pessoa);
-        List<Pessoa> selectPessoa();
-        void updatePessoa(Pessoa pessoa);
+        List<Pessoa_Fisica> PesquisarPessoaFisica(string NomePessoa, string CPF, string RG);
+
+        void salvar(Pessoa reg);
+
     }
 }
