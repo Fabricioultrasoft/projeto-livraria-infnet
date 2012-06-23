@@ -17,7 +17,10 @@ namespace Controller
             this.DAL = DalPessoa;
         }
 
-
+        public List<Pessoa_Fisica> PesquisarPessoaFisica(string NomePessoa, string CPF, string RG)
+        {
+            return DAL.PesquisarPessoaFisica(NomePessoa, CPF, RG);
+        }
 
         public void salvarPessoa(Pessoa_Fisica pessoa)
         {
