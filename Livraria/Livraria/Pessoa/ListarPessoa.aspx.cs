@@ -17,8 +17,10 @@ public partial class Pessoa_ListarPessoa : System.Web.UI.Page
 
     protected void PesquisarButton_Click(object sender, EventArgs e)
     {
-        string tipoPessoa = TipoPessoaRadioButtonList.SelectedValue;
-
+        try
+        {
+            string tipoPessoa = TipoPessoaRadioButtonList.SelectedValue;
+            
             switch (tipoPessoa)
             {
                 case "PF":
