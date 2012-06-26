@@ -9,7 +9,12 @@ namespace Model
     {
         List<Pessoa_Fisica> PesquisarPessoaFisica(string NomePessoa, string CPF, string RG);
 
-        void salvar(Pessoa reg);
+        void Cadastrar(Pessoa_Fisica reg);
 
+        void Atualizar(Pessoa_Fisica reg);
+
+        Pessoa_Fisica ConsultarPessoaFisica(Guid UserId);
+
+        Pessoa_Juridica ConsultarPessoaJuridica(Guid UserId);
     }
 }

@@ -23,21 +23,12 @@ public class fCadastroPessoa
     {
         pessoa.UserId = cUsuario.getCurrentUserId();
 
-        PessoaControler.salvarPessoa(pessoa);
+        PessoaControler.SalvarPessoa(pessoa);
     }
 
-    public void deletarPessoa(Pessoa pessoa)
+    public Pessoa ObterPessoa()
     {
-        throw new NotImplementedException();
+        return PessoaControler.ObterPessoa(cUsuario.getCurrentUserId());
     }
 
-    public List<Pessoa> selectPessoa()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void updatePessoa(Pessoa pessoa)
-    {
-        throw new NotImplementedException();
-    }
 }

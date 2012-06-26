@@ -68,7 +68,8 @@
                         ErrorMessage="O campo Data de Nascimento é obrigatório.">*</asp:RequiredFieldValidator>
                     <asp:CompareValidator ID="DataNascimentoCompareValidator" runat="server" 
                         ControlToValidate="DataNascimentoTextBox" Display="Dynamic" 
-                        ErrorMessage="Valor inválido para Data de Nascimento " Type="Date">*</asp:CompareValidator>
+                        ErrorMessage="Valor inválido para Data de Nascimento " Type="Date" 
+                        Operator="DataTypeCheck">*</asp:CompareValidator>
                 </td>
             </tr>
             <tr>
@@ -82,8 +83,25 @@
         </table>
     </asp:Panel>
     <br />
-    <asp:Panel ID="Endereco" runat="server" GroupingText="Lista de Endereço">
-        &nbsp;<asp:GridView ID="EnderecoGridView" runat="server" 
+    <asp:Panel ID="EnderecoPanel" runat="server" GroupingText="Lista de Endereço">
+        <asp:GridView ID="EnderecoGridView" runat="server" 
+    CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+        </asp:GridView>
+    </asp:Panel>
+    
+    <asp:Panel ID="TelefonePanel" runat="server" GroupingText="Lista de Telefones">
+        <asp:GridView ID="TelefoneGridView" runat="server" 
     CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
