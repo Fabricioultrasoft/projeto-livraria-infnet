@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Model;
 using DAL;
+using DAL.Exceptions;
 using Controller.Exceptions;
 
 namespace Controller
@@ -22,34 +23,53 @@ namespace Controller
             return DAL.PesquisarPessoaFisica(NomePessoa, CPF, RG);
         }
 
-        public void salvarPessoa(Pessoa_Fisica pessoa)
+        public void SalvarPessoa(Pessoa_Fisica pessoa)
         {
-            int count = DAL.PesquisarPessoaFisica(pessoa.Nome, pessoa.CPF, pessoa.RG).Count;
-
-            if (count > 0)
+            if (pessoa.Id == 0)
             {
-                throw new WarningException("Já existe uma pessoa cadastrada com esses dados.");
+                try
+                {
+                    DAL.Cadastrar(pessoa);
+                }
+                catch(RegistroDuplicadoException)
+                {
+                    throw new WarningException("Já existe uma pessoa cadastrada com esses dados.");
+                }
+                catch (Exception)
+                {
+                    throw;
+                }                
             }
-
-            DAL.salvar(pessoa);
+            else
+            {
+                try
+                {
+                    DAL.Atualizar(pessoa);
+                }
+                catch (RegistroNaoEncontradoException)
+                {
+                    throw new Exception("Ocorreu um erro na alteração do perfil.");
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
 
             throw new InformationException("Registro salvo com sucesso!");
         }
 
-        public void deletarPessoa(Pessoa pessoa)
+        public Pessoa ObterPessoa(Guid UserId)
         {
-            throw new NotImplementedException();
-        }
+            Pessoa pessoa = DAL.ConsultarPessoaFisica(UserId);
 
-        public List<Pessoa> selectPessoa()
-        {
-            throw new NotImplementedException();
-        }
+            if (pessoa == null)
+            {
+                pessoa = DAL.ConsultarPessoaJuridica(UserId);
+            }
 
-        public void updatePessoa(Pessoa pessoa)
-        {
-            throw new NotImplementedException();
-        }
 
+            return pessoa;
+        }
     }
 }
