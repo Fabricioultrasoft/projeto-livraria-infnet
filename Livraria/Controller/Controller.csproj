@@ -12,6 +12,10 @@
     <AssemblyName>Controller</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cPessoa.cs" />
+    <Compile Include="cProduto.cs" />
     <Compile Include="cUsuario.cs" />
     <Compile Include="Excepitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

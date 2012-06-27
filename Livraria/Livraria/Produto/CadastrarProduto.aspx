@@ -10,24 +10,22 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-    <h1>
-        Cadastro de Produto</h1>
-    <span class="failureNotification">
-        <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
-    </span>
-    <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
-        ValidationGroup="RegisterUserValidationGroup" />
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Form">
+    <asp:Label ID="ErroLabel" runat="server"></asp:Label>
+    <asp:ValidationSummary ID="ValidationSummary"  runat="server" />
+    <h2>
+        Cadastro de Produto</h2>
+    <asp:Panel ID="ProdutoPanel" runat="server" GroupingText="Identificação">
+        <asp:Button ID="CadastrarProdutoButton" runat="server" CommandName="MoveNext" Text="Salvar"
+             OnClick="CadastrarProdutoButton_Click" />
         <table class="style1">
             <tr>
                 <td>
                     <asp:Label ID="NomeLabel" runat="server" Text="Nome: "></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="NomeTextBox" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="NomeValidator" runat="server" ControlToValidate="NomeTextBox"
-                        CssClass="failureNotification" ErrorMessage="O campo NOME deve ser preenchido."
-                        ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="NomeTextBox" runat="server" Width="309px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="NomeRequiredFieldValidator" runat="server" ControlToValidate="NomeTextBox"
+                        Display="Dynamic" ErrorMessage="O campo Nome é obrigatório." >*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -35,10 +33,9 @@
                     <asp:Label ID="DescricaoLabel" runat="server" Text="Descricao: "></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="DescricaoTextBox" runat="server" TextMode="MultiLine"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="DescricaoValidator" runat="server" ControlToValidate="DescricaoTextBox"
-                        CssClass="failureNotification" ErrorMessage="O campo DESCRICAO deve ser preenchido."
-                        ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="DescricaoTextBox" runat="server" TextMode="MultiLine" Width="309px" Height="97px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="DescricaoRequiredFieldValidator" runat="server" ControlToValidate="DescricaoTextBox"
+                        Display="Dynamic" ErrorMessage="O campo Descrição é obrigatório." >*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -46,14 +43,14 @@
                     <asp:Label ID="ValorLabel" runat="server" Text="Valor: "></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="ValorTextBox" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="ValorValidator" runat="server" ControlToValidate="ValorTextBox"
-                        CssClass="failureNotification" ErrorMessage="O campo VALOR deve ser preenchido."
-                        ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="ValorTextBox" runat="server" Width="309px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ValorRequiredFieldValidator" runat="server" ControlToValidate="ValorTextBox"
+                        Display="Dynamic" ErrorMessage="O campo Valor é obrigatório." >*</asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="ValorCompareValidator" runat="server" 
+                        ControlToValidate="ValorTextBox" Display="Dynamic" 
+                        ErrorMessage="Input inválido para Valor" Type="Double" >*</asp:CompareValidator>
                 </td>
             </tr>
         </table>
-        <asp:Button ID="CadastrarProdutoButton" runat="server" CommandName="MoveNext" Text="Cadastrar"
-            ValidationGroup="RegisterUserValidationGroup" OnClick="CadastrarProdutoButton_Click" />
     </asp:Panel>
 </asp:Content>

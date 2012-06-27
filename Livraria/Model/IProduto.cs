@@ -7,7 +7,8 @@ namespace Model
 {
     public interface IProduto
     {
+        List<Produto> PesquisarProduto(string NomeProduto);
 
-
+        void salvar(Produto reg);
     }
 }
