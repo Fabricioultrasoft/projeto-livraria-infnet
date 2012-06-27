@@ -8,22 +8,18 @@
     <asp:TextBox ID="TbLogradouro" runat="server" Width="281px"></asp:TextBox>
     <br />
     <br />
-    <asp:Label ID="LbNumero" runat="server" Text="Número:  "> </asp:Label>
-    
-     
-    <asp:TextBox ID="TbNumero" runat="server" Width="85px"></asp:TextBox>
       <asp:RequiredFieldValidator ID="NomeRequiredFieldValidator" runat="server" 
                         ControlToValidate="TbNumero" Display="Dynamic" 
                         ErrorMessage="O campo Numero é obrigatório.">*</asp:RequiredFieldValidator>
     <asp:Label ID="LbComplemento" runat="server" Text="Complemento:  "></asp:Label>
-    <asp:TextBox ID="TbComplemento" runat="server" Width="116px"></asp:TextBox>
+    <asp:TextBox ID="TbComplemento" runat="server" Width="265px"></asp:TextBox>
      <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                         ControlToValidate="TbComplemento" Display="Dynamic" 
                         ErrorMessage="O campo Complemento é obrigatório.">*</asp:RequiredFieldValidator>
     <br />
     <br />
     <asp:Label ID="LbBairro" runat="server">Bairro:  </asp:Label>
-    <asp:TextBox ID="TbBairro" runat="server" Width="212px"></asp:TextBox>
+    <asp:TextBox ID="TbBairro" runat="server" Width="319px"></asp:TextBox>
       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                         ControlToValidate="TbBairro" Display="Dynamic" 
                         ErrorMessage="O campo Complemento é obrigatório.">*</asp:RequiredFieldValidator>
