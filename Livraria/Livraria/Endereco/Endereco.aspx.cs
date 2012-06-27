@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
+using Controller;
 
 public partial class Endereco_Endereco : System.Web.UI.Page
 {
@@ -18,6 +19,8 @@ public partial class Endereco_Endereco : System.Web.UI.Page
         endereco.Complemento=TbComplemento.Text;
         endereco.Logradouro = TbLogradouro.Text;
         endereco.UF = TbUf.Text;
-    
+
+        CadadastroPessoaFacade.salvarPessoa(endereco);
+        
     }
 }
