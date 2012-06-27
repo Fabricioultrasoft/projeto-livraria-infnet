@@ -58,8 +58,13 @@ namespace Controller
                 throw new InformationException("Registro salvo com sucesso!");
             }
 
-     
 
+
+
+            public Pessoa ObterEndereco(Guid guid)
+            {
+                throw new NotImplementedException();
+            }
         }
     
 
