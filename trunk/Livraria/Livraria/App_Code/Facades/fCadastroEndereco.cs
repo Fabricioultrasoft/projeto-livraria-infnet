@@ -22,12 +22,12 @@ public class fCadastroEndereco
     {
         endereco.UserId = cUsuario.getCurrentUserId();
 
-        EnderecoControler.SalvarPessoa(endereco);
+        EnderecoControler.SalvarEndereco(endereco);
     }
 
     public Pessoa ObterPessoa()
     {
-        return EnderecoControler.ObterPessoa(cUsuario.getCurrentUserId());
+        return EnderecoControler.ObterEndereco(cUsuario.getCurrentUserId());
     }
 
 }
