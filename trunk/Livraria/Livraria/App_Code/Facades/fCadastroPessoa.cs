@@ -26,6 +26,20 @@ public class fCadastroPessoa
         PessoaControler.SalvarPessoa(pessoa);
     }
 
+
+    public void salvarEndereco(Endereco endereco)
+    {
+
+        Pessoa_Fisica pessoa=new Pessoa_Fisica();
+
+        pessoa.UserId = cUsuario.getCurrentUserId();
+
+        pessoa.aspnet_Users.Endereco.Add(endereco);
+        PessoaControler.SalvarPessoa(pessoa);
+
+
+    }
+
     public Pessoa ObterPessoa()
     {
         return PessoaControler.ObterPessoa(cUsuario.getCurrentUserId());
