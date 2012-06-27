@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Livraria", "Livraria\", "{F1607EA5-F373-4760-8EE9-F39979167674}"
 	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		ProjectReferences = "{C5266F0D-E349-4B68-9D37-84A826808E77}|Controller.dll;{676D4A5A-2188-46FC-868C-AC44D93531F5}|Model.dll;{85DA20E0-CAED-4ED4-9CEB-D6129B128889}|DAL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Livraria"
@@ -34,7 +38,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Livraria", "Livraria\", "{F
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "9190"
+		VWDPort = "1469"
 	EndProjectSection
 EndProject
 Global
