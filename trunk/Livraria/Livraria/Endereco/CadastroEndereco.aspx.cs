@@ -25,7 +25,9 @@ public partial class Endereco_CadastroEndereco : System.Web.UI.Page
 
         endereco.UserId = cEndereco.getCurrentUserId();
 
-       EnderecoControler.SalvarEndereco(endereco);
+        fCadastroEndereco fEndereco = new fCadastroEndereco();
+
+        fEndereco.salvarEndereco(endereco);
 
     }
 }
