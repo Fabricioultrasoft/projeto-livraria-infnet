@@ -18,7 +18,7 @@ public class fCadastroEndereco
         EnderecoControler = new cEndereco(new EnderecoDAL());
     }
 
-    public void salvarPessoa(Endereco endereco)
+    public void salvarEndereco(Endereco endereco)
     {
         endereco.UserId = cUsuario.getCurrentUserId();
 
